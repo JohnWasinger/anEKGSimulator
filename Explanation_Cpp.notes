@@ -486,8 +486,8 @@ qml.qrc \_______________________________________________________________________
 3. Qt6 Installation: Make sure you have the correct Qt6 modules installed, and that they are properly configured in your system's CMake paths.
 
 4. Build and Run: Use CMake to configure the build system and then compile the project:
-___
-sh \____________________________________________________________________________
+_________
+build.sh \______________________________________________________________________
 
 mkdir build
 cd build
