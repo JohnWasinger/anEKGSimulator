@@ -1,3 +1,6 @@
+_______
+Python \________________________________________________________________________
+
 Q> Create an example of an MVVM architecture implemented in QML and PyQt6,
 where the model is a simulated EKG of a human heart beat. The view controller
 allows scrolling and zooming of the rendered plot and provides a way to measure
