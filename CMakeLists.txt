@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)  # Required for CMake 3.19 or newer
+cmake_minimum_required(VERSION 3.19)
 project(EKGViewer VERSION 1.0 LANGUAGES CXX)
 
 # Set C++20 standard
@@ -6,30 +6,40 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Find Qt6
+# Find Qt6 packages
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Qml)
+if (NOT Qt6_FOUND)
+    message(FATAL_ERROR "Qt6 not found. Please ensure Qt6 is installed correctly.")
+endif()
 
-# Find QWT
+# Find QWT package
 find_package(QWT REQUIRED)
+if (NOT QWT_FOUND)
+    message(FATAL_ERROR "QWT not found. Please ensure QWT is installed correctly.")
+endif()
 
-# Define the sources
+# Define the sources and headers
 set(SOURCES
     main.cpp
     ekgmodel.cpp
     ekgviewmodel.cpp
 )
 
-# Define the header files
 set(HEADERS
     ekgmodel.h
     ekgviewmodel.h
+)
+
+# Define the QML resource file
+set(QML_FILES
+    qml.qrc
 )
 
 # Create the executable target
 add_executable(EKGViewer
     ${SOURCES}
     ${HEADERS}
-    qml.qrc  # QML resources file
+    ${QML_FILES}
 )
 
 # Link against Qt6 libraries
@@ -57,15 +67,18 @@ qt_add_qml_module(EKGViewer
     Main.qml
 )
 
+# Ensure QML resources are built
+qt_add_resources(EKGViewer
+    PREFIX "/"
+    FILES
+    ${QML_FILES}
+)
+
 # Set the RPATH to find Qt6 and QWT libraries at runtime
 set_target_properties(EKGViewer PROPERTIES
     INSTALL_RPATH_USE_LINK_PATH TRUE
 )
 
-# Ensure QML modules are built
-qt_add_resources(EKGViewer
-    PREFIX
-    "/"
-    FILES
-    qml.qrc
-)
+# Display diagnostic information
+message(STATUS "Qt6 Version: ${Qt6_VERSION}")
+message(STATUS "QWT Version: ${QWT_VERSION}")
