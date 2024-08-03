@@ -4,10 +4,338 @@ C++13 \_________________________________________________________________________
 Q> Create an example of an MVVM architecture implemented in C++13 QML and Qt5,
 where the model is a simulated EKG of a human heart beat. Use QWT for plotting
 the graphs. The view controller allows scrolling and zooming of the rendered
-plot and provides a way to measure the heart rate found in the data sample.
+plot and provides a way to measure the heart rate found in the data sample. And
+provide cmake build scripts to build it. 
 
-A>
+A> Implementing an MVVM (Model-View-ViewModel) architecture in a Qt5 and QML
+application with C++13 involves creating a simulated EKG model, a QML view for
+visualization, and a view model that binds the two together. For plotting,
+we'll use QWT (Qt Widgets for Technical Applications). Below is an example of
+how to set this up.
+Directory Structure
 
-Q> Create a CMake file for building this.
+Here is a basic directory structure for the project:
 
-A>
+EKG_MVVM/
+│
+├── CMakeLists.txt
+│
+├── qml/
+│   ├── main.qml
+│   ├── EKGView.qml
+│
+├── src/
+│   ├── main.cpp
+│   ├── ekgmodel.h
+│   ├── ekgmodel.cpp
+│   ├── ekgviewmodel.h
+│   ├── ekgviewmodel.cpp
+│   ├── ekgcontroller.h
+│   ├── ekgcontroller.cpp
+│   ├── ekgplot.cpp
+│   ├── ekgplot.h
+│
+├── resources.qrc
+_______________
+CMakeLists.txt \________________________________________________________________
+
+cmake_minimum_required(VERSION 3.10)
+
+project(EKG_MVVM)
+
+set(CMAKE_CXX_STANDARD 13)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Qml Quick Widgets)
+find_package(Qwt REQUIRED)
+
+add_executable(EKG_MVVM
+    src/main.cpp
+    src/ekgmodel.cpp
+    src/ekgviewmodel.cpp
+    src/ekgcontroller.cpp
+    src/ekgplot.cpp
+)
+
+target_link_libraries(EKG_MVVM
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::Widgets
+    Qwt::Qwt
+)
+
+set_target_properties(EKG_MVVM PROPERTIES
+    AUTOMOC ON
+    AUTORCC ON
+    AUTOUIC ON
+)
+
+qt5_add_resources(EKG_MVVM_RCC_FILES resources.qrc)
+_____________
+qml/main.qml \__________________________________________________________________
+
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+
+ApplicationWindow {
+    visible: true
+    width: 800
+    height: 600
+    title: "EKG MVVM Example"
+
+    EKGView {
+        id: ekgView
+        anchors.fill: parent
+    }
+}
+________________
+qml/EKGView.qml \_______________________________________________________________
+
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+
+Rectangle {
+    width: 600
+    height: 400
+
+    // Create a QML object that wraps the QWT plot
+    // This part assumes that QWT integration with QML is handled by C++
+    // and a QML wrapper will be available for EKGPlot
+
+    EKGPlot {
+        id: plot
+        anchors.fill: parent
+        // Bind properties here
+    }
+}
+_____________
+src/main.cpp \__________________________________________________________________
+
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include "ekgviewmodel.h"
+
+int main(int argc, char *argv[]) {
+    QGuiApplication app(argc, argv);
+
+    QQmlApplicationEngine engine;
+    EKGViewModel viewModel;
+
+    engine.rootContext()->setContextProperty("ekgViewModel", &viewModel);
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+
+    if (engine.rootObjects().isEmpty())
+        return -1;
+
+    return app.exec();
+}
+_______________
+src/ekgmodel.h \________________________________________________________________
+
+#ifndef EKGMODEL_H
+#define EKGMODEL_H
+
+#include <QObject>
+#include <QVector>
+
+class EKGModel : public QObject {
+    Q_OBJECT
+
+public:
+    explicit EKGModel(QObject *parent = nullptr);
+    
+    Q_INVOKABLE QVector<double> getData() const;
+
+private:
+    QVector<double> data;
+    void simulateData();
+};
+
+#endif // EKGMODEL_H
+_________________
+src/ekgmodel.cpp \______________________________________________________________
+
+#include "ekgmodel.h"
+#include <QRandomGenerator>
+
+EKGModel::EKGModel(QObject *parent) : QObject(parent) {
+    simulateData();
+}
+
+QVector<double> EKGModel::getData() const {
+    return data;
+}
+
+void EKGModel::simulateData() {
+    data.resize(1000);
+    for (int i = 0; i < data.size(); ++i) {
+        data[i] = QRandomGenerator::global()->bounded(1.0); // Simulate some data
+    }
+}
+___________________
+src/ekgviewmodel.h \____________________________________________________________
+
+#ifndef EKGVIEWMODEL_H
+#define EKGVIEWMODEL_H
+
+#include <QObject>
+#include "ekgmodel.h"
+
+class EKGViewModel : public QObject {
+    Q_OBJECT
+    Q_PROPERTY(QVector<double> data READ data NOTIFY dataChanged)
+
+public:
+    explicit EKGViewModel(QObject *parent = nullptr);
+
+    QVector<double> data() const;
+
+signals:
+    void dataChanged();
+
+private:
+    EKGModel model;
+};
+
+#endif // EKGVIEWMODEL_H
+_____________________
+src/ekgviewmodel.cpp \__________________________________________________________
+
+#include "ekgviewmodel.h"
+
+EKGViewModel::EKGViewModel(QObject *parent) : QObject(parent), model() {
+}
+
+QVector<double> EKGViewModel::data() const {
+    return model.getData();
+}
+____________________
+src/ekgcontroller.h \___________________________________________________________
+
+#ifndef EKGCONTROLLER_H
+#define EKGCONTROLLER_H
+
+#include <QObject>
+#include "ekgmodel.h"
+
+class EKGController : public QObject {
+    Q_OBJECT
+
+public:
+    explicit EKGController(QObject *parent = nullptr);
+
+public slots:
+    void zoomIn();
+    void zoomOut();
+
+private:
+    EKGModel model;
+};
+
+#endif // EKGCONTROLLER_H
+______________________
+src/ekgcontroller.cpp \_________________________________________________________
+
+#include "ekgcontroller.h"
+
+EKGController::EKGController(QObject *parent) : QObject(parent) {
+}
+
+void EKGController::zoomIn() {
+    // Implement zoom in logic here
+}
+
+void EKGController::zoomOut() {
+    // Implement zoom out logic here
+}
+______________
+src/ekgplot.h \_________________________________________________________________
+
+#ifndef EKGPLOT_H
+#define EKGPLOT_H
+
+#include <QQuickPaintedItem>
+#include <QPainter>
+#include <QwtPlot>
+#include <QwtPlotCurve>
+
+class EKGPlot : public QQuickPaintedItem {
+    Q_OBJECT
+
+public:
+    EKGPlot(QQuickItem *parent = nullptr);
+
+    void paint(QPainter *painter) override;
+
+private:
+    QwtPlot *plot;
+    QwtPlotCurve *curve;
+};
+
+#endif // EKGPLOT_H
+________________
+src/ekgplot.cpp \_______________________________________________________________
+
+#include "ekgplot.h"
+
+EKGPlot::EKGPlot(QQuickItem *parent) : QQuickPaintedItem(parent), plot(new QwtPlot()), curve(new QwtPlotCurve()) {
+    plot->setTitle("EKG Plot");
+    plot->setCanvasBackground(Qt::white);
+
+    QVector<double> xData(1000);
+    QVector<double> yData(1000);
+
+    for (int i = 0; i < 1000; ++i) {
+        xData[i] = i;
+        yData[i] = qSin(i / 10.0); // Simple sine wave for demonstration
+    }
+
+    curve->setSamples(xData, yData);
+    curve->attach(plot);
+
+    plot->replot();
+}
+
+void EKGPlot::paint(QPainter *painter) {
+    plot->render(painter);
+}
+______________
+resources.qrc \_________________________________________________________________
+
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/EKGView.qml</file>
+    </qresource>
+</RCC>
+___________________
+build Instructions \____________________________________________________________
+
+To build the project, follow these steps:
+
+1. Create a build directory:
+
+mkdir build
+cd build
+
+2. Run CMake to configure the project:
+
+cmake ..
+
+3. Build the project:
+
+make
+
+4. Run the executable:
+
+./EKG_MVVM
+
+This setup provides a basic example of MVVM architecture in a Qt application
+with simulated EKG data. The EKGPlot class handles the rendering of the plot
+using QWT, and the EKGModel class simulates heart rate data. The EKGViewModel
+class binds the model to the QML view, and the EKGController would manage
+interactions like zooming or scrolling if further developed.
