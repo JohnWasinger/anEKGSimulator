@@ -1,84 +1,34 @@
-cmake_minimum_required(VERSION 3.19)
-project(EKGViewer VERSION 1.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.10)
 
-# Set C++20 standard
-set(CMAKE_CXX_STANDARD 20)
+project(EKG_MVVM)
+
+set(CMAKE_CXX_STANDARD 13)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Find Qt6 packages
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Qml)
-if (NOT Qt6_FOUND)
-    message(FATAL_ERROR "Qt6 not found. Please ensure Qt6 is installed correctly.")
-endif()
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Qml Quick Widgets)
+find_package(Qwt REQUIRED)
 
-# Find QWT package
-find_package(QWT REQUIRED)
-if (NOT QWT_FOUND)
-    message(FATAL_ERROR "QWT not found. Please ensure QWT is installed correctly.")
-endif()
-
-# Define the sources and headers
-set(SOURCES
-    main.cpp
-    ekgmodel.cpp
-    ekgviewmodel.cpp
+add_executable(EKG_MVVM
+    src/main.cpp
+    src/ekgmodel.cpp
+    src/ekgviewmodel.cpp
+    src/ekgcontroller.cpp
+    src/ekgplot.cpp
 )
 
-set(HEADERS
-    ekgmodel.h
-    ekgviewmodel.h
+target_link_libraries(EKG_MVVM
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::Widgets
+    Qwt::Qwt
 )
 
-# Define the QML resource file
-set(QML_FILES
-    qml.qrc
+set_target_properties(EKG_MVVM PROPERTIES
+    AUTOMOC ON
+    AUTORCC ON
+    AUTOUIC ON
 )
 
-# Create the executable target
-add_executable(EKGViewer
-    ${SOURCES}
-    ${HEADERS}
-    ${QML_FILES}
-)
-
-# Link against Qt6 libraries
-target_link_libraries(EKGViewer
-    PRIVATE
-    Qt6::Core
-    Qt6::Gui
-    Qt6::Quick
-    Qt6::Qml
-    QWT::QWT
-)
-
-# Include directories for Qt6 and QWT
-target_include_directories(EKGViewer
-    PRIVATE
-    ${Qt6_INCLUDE_DIRS}
-    ${QWT_INCLUDE_DIRS}
-)
-
-# Set up QML resources
-qt_add_qml_module(EKGViewer
-    URI EKGViewer
-    VERSION 1.0
-    QML_FILES
-    Main.qml
-)
-
-# Ensure QML resources are built
-qt_add_resources(EKGViewer
-    PREFIX "/"
-    FILES
-    ${QML_FILES}
-)
-
-# Set the RPATH to find Qt6 and QWT libraries at runtime
-set_target_properties(EKGViewer PROPERTIES
-    INSTALL_RPATH_USE_LINK_PATH TRUE
-)
-
-# Display diagnostic information
-message(STATUS "Qt6 Version: ${Qt6_VERSION}")
-message(STATUS "QWT Version: ${QWT_VERSION}")
+qt5_add_resources(EKG_MVVM_RCC_FILES resources.qrc)
