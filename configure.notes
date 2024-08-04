@@ -1,0 +1,572 @@
+> ../qt5/configure -developer-build -opensource
++ cd qtbase
++ /home/wasinger/GIT/qt5/qtbase/configure -top-level -developer-build -opensource
+Preparing build tree...
+<srcbase> = /home/wasinger/GIT/qt5/qtbase 
+<bldbase> = /home/wasinger/GIT/qt5-build/qtbase 
+<outbase> = /home/wasinger/GIT/qt5-build/qtbase 
+Creating qmake...
+....................................................................Done.
+Info: creating super cache file /home/wasinger/GIT/qt5-build/.qmake.super
+Info: creating cache file /home/wasinger/GIT/qt5-build/.qmake.cache
+
+This is the Qt Open Source Edition.
+ 
+You are licensed to use this software under the terms of
+the GNU Lesser General Public License (LGPL) version 3
+or the GNU General Public License (GPL) version 2.
+ 
+Type 'L' to view the GNU Lesser General Public License version 3 (LGPLv3).
+Type 'G' to view the GNU General Public License version 2 (GPLv2).
+Type 'y' to accept this license offer.
+Type 'n' to decline this license offer.
+ 
+Do you accept the terms of either license? y
+
+
+Running configuration tests...
+Checking for machine tuple... yes
+Checking for valid makespec... yes
+Checking for target architecture... x86_64
+Checking for SSE2 instructions... yes
+Checking for AES new instructions... yes
+Checking for alloca() in alloca.h... yes
+Checking for SSE3 instructions... yes
+Checking for SSSE3 instructions... yes
+Checking for SSE4.1 instructions... yes
+Checking for SSE4.2 instructions... yes
+Checking for AVX instructions... yes
+Checking for AVX2 instructions... yes
+Checking for AVX512 F instructions... yes
+Checking for AVX512 BW instructions... yes
+Checking for AVX512 CD instructions... yes
+Checking for AVX512 DQ instructions... yes
+Checking for AVX512 ER instructions... yes
+Checking for AVX512 IFMA instructions... yes
+Checking for AVX512 PF instructions... yes
+Checking for AVX512 VBMI instructions... yes
+Checking for AVX512 VL instructions... yes
+Checking for C++14 support... yes
+Checking for C++17 support... yes
+Checking for C99 support... yes
+Checking for C11 support... yes
+Checking for pkg-config... yes
+Checking for D-Bus >= 1.2... yes
+Checking for dlopen()... yes
+Checking for gdb index support... no
+Checking for new dtags support... yes
+Checking for F16C instructions... yes
+Checking for D-Bus >= 1.2 (host)... yes
+Checking for Support for Intel Control-flow Enforcement Technology... yes
+Checking for udev... yes
+Checking for POSIX fallocate()... yes
+Checking for precompiled header support... yes
+Checking for RDRAND instruction... yes
+Checking for RDSEED instruction... yes
+Checking for symbol visibility support... yes
+Checking for -Bsymbolic-functions support... yes
+Checking for SHA new instructions... yes
+Checking for Signaling NaN for doubles... yes
+Checking for STL compatibility... yes
+Checking for zlib... yes
+Checking for Intrinsics without -mXXX argument... yes
+Checking for Zstandard... yes
+Checking for clock_gettime()... yes
+Checking for POSIX monotonic clock... yes
+Checking for C++11 <future>... yes
+Checking for eventfd... yes
+Checking for futimens()... yes
+Checking for getauxval()... yes
+Checking for getentropy()... yes
+Checking for GLib... yes
+Checking for GNU libc... yes
+Checking for POSIX iconv... yes
+Checking for ICU... yes
+Checking for inotify... yes
+Checking for SysV IPC... yes
+Checking for linkat()... yes
+Checking for ppoll()... yes
+Checking for PCRE2... yes
+Checking for renameat2()... yes
+Checking for slog2... no
+Checking for statx() in libc... yes
+Checking for 64 bit atomics... yes
+Checking for DoubleConversion... no
+Checking for O_CLOEXEC... yes
+Checking for C++11 <random>... yes
+Checking for working std::atomic for function pointers... yes
+Checking for OpenSSL Headers... yes
+Checking for DTLS support in OpenSSL... yes
+Checking for getifaddrs()... yes
+Checking for KRB5 GSSAPI Support... no
+Checking for IPv6 ifname... yes
+Checking for Linux AF_NETLINK sockets... yes
+Checking for OCSP stapling support in OpenSSL... yes
+Checking for XCB >= 1.11... yes
+Checking for XCB ICCCM >= 0.3.9... no
+Checking for Desktop OpenGL... yes
+Checking for KMS... yes
+Checking for DRM Atomic API... yes
+Checking for EGL... yes
+Checking for XLib... yes
+Checking for EGL on X11... no
+Checking for EGLDevice... yes
+Checking for GBM... no
+Checking for Mali EGL... no
+Checking for Mali 2 EGL... no
+Checking for i.Mx6 EGL... no
+Checking for XCB Xlib... no
+Checking for evdev... yes
+Checking for FreeType... yes
+Checking for Fontconfig... yes
+Checking for libinput... yes
+Checking for axis API in libinput... yes
+Checking for LinuxFB... yes
+Checking for mtdev... yes
+Checking for OpenVG... no
+Checking for default QPA platform... xcb
+Checking for HarfBuzz... yes
+Checking for libjpeg... yes
+Checking for libpng... yes
+Checking for libmd4c... no
+Checking for tslib... no
+Checking for Vulkan... yes
+Checking for xkbcommon >= 0.5.0... yes
+Checking for xkbcommon-x11... no
+Checking for GTK+ >= 3.6... no
+Checking for CUPS... no
+Checking for DB2 (IBM)... no
+Checking for InterBase... no
+Checking for MySQL... no
+Checking for OCI (Oracle)... no
+Checking for ODBC... no
+Checking for PostgreSQL... no
+Checking for SQLite (version 2)... no
+Checking for TDS (Sybase)... no
+Checking for ntddmodm... no
+Checking for Socket CAN... yes
+Checking for Socket CAN FD... yes
+Checking for 64bit pointers... yes
+Checking for python... /usr/bin/python3
+Checking for Direct3D 12... no
+Checking for Assimp... no
+Checking for SDL2... no
+Checking for Assimp... no
+Checking for Autodesk FBX... no
+Checking for Wayland client library... yes
+Checking for Wayland cursor library... yes
+Checking for wayland-scanner... yes
+Checking for EGL 1.5 with Wayland Platform... yes
+Checking for Linux dma-buf Buffer Sharing... no
+Checking for DRM EGL Server... yes
+Checking for Wayland EGL library... yes
+Checking for libhybris EGL Server... no
+Checking for Vulkan Buffer Sharing... yes
+Checking for XComposite... yes
+Checking for GLX... yes
+Checking for wayland-server... yes
+Checking for Linux Client dma-buf Buffer Sharing... no
+Checking for Linux dma-buf Buffer Sharing... no
+Checking for Vulkan Buffer Sharing... yes
+Checking for BlueZ... no
+Checking for sensorfw... no
+Checking for Gypsy... no
+Checking for WinRT Geolocation API... no
+Checking for ALSA... no
+Checking for GStreamer 1.0... no
+Checking for GStreamer 0.10... no
+Checking for Video for Linux... yes
+Checking for OpenAL... no
+Checking for PulseAudio >= 0.9.10... no
+Checking for libresourceqt5... no
+Checking for Flite... no
+Checking for Speech Dispatcher... no
+Checking for libclang... yes
+Checking for architecture supported... yes
+Checking for bison... yes
+Checking for submodule initialized... yes
+Checking for build path without whitespace... yes
+Checking for platform supported... 
+Checking for gperf... yes
+Checking for flex... yes
+Checking for python2... 
+Checking for host pkg-config... /usr/bin/pkg-config
+Checking for jumbo build merge limit... 8
+Checking for linker supports -z noexecstack... yes
+Checking for d-bus... yes
+Checking for fontconfig... yes
+Checking for freetype >= 2.4.2... yes
+Checking for glib-2.0 >= 2.32.0... yes
+Checking for glibc > 2.16... yes
+Checking for harfbuzz >= 2.2.0... yes
+Checking for compatible jpeglib... yes
+Checking for jsoncpp... no
+Checking for khr... yes
+Checking for lcms2... no
+Checking for libdrm... yes
+Checking for libevent... no
+Checking for libvpx... no
+Checking for libwebp, libwebpmux and libwebpdemux... yes
+Checking for compatible libxml2 and libxslt... no
+Checking for minizip... no
+Checking for system ninja... yes
+Checking for nss >= 3.26... no
+Checking for opus... no
+Checking for libpng >= 1.6.0... yes
+Checking for protobuf... no
+Checking for re2... no
+Checking for snappy... no
+Checking for x11... yes
+Checking for xcomposite... yes
+Checking for xcursor... yes
+Checking for xi... yes
+Checking for xtst... no
+Checking for zlib... yes
+Done running configuration tests.
+
+Configure summary:
+
+Build type: linux-g++ (x86_64, CPU features: mmx sse sse2)
+Compiler: gcc 13.2.0
+Configuration: sse2 aesni sse3 ssse3 sse4_1 sse4_2 avx avx2 avx512f avx512bw avx512cd avx512dq avx512er avx512ifma avx512pf avx512vbmi avx512vl compile_examples enable_new_dtags f16c headersclean largefile precompile_header rdrnd rdseed shani warnings_are_errors x86SimdAlways private_tests shared shared rpath debug c++11 c++14 c++17 c++1z concurrent dbus reduce_exports reduce_relocations release_tools stl
+Build options:
+  Mode ................................... debug; optimized tools
+  Optimize debug build ................... no
+  Building shared libraries .............. yes
+  Using C standard ....................... C11
+  Using C++ standard ..................... C++17
+  Using ccache ........................... no
+  Using new DTAGS ........................ yes
+  Generating GDB index ................... no
+  Relocatable ............................ yes
+  Using precompiled headers .............. yes
+  Using LTCG ............................. no
+  Target compiler supports:
+    SSE .................................. SSE2 SSE3 SSSE3 SSE4.1 SSE4.2
+    AVX .................................. AVX AVX2
+    AVX512 ............................... F ER CD PF DQ BW VL IFMA VBMI
+    Other x86 ............................ AES F16C RDRAND SHA
+    Intrinsics without -mXXX option ...... yes
+  Build parts ............................ libs examples tests tools
+Qt modules and options:
+  Qt Concurrent .......................... yes
+  Qt D-Bus ............................... yes
+  Qt D-Bus directly linked to libdbus .... yes
+  Qt Gui ................................. yes
+  Qt Network ............................. yes
+  Qt Sql ................................. yes
+  Qt Testlib ............................. yes
+  Qt Widgets ............................. yes
+  Qt Xml ................................. yes
+Support enabled for:
+  Using pkg-config ....................... yes
+  udev ................................... yes
+  Using system zlib ...................... yes
+  Zstandard support ...................... yes
+Qt Core:
+  DoubleConversion ....................... yes
+    Using system DoubleConversion ........ no
+  GLib ................................... yes
+  iconv .................................. no
+  ICU .................................... yes
+  Built-in copy of the MIME database ..... yes
+  Tracing backend ........................ <none>
+  Logging backends:
+    journald ............................. no
+    syslog ............................... no
+    slog2 ................................ no
+  PCRE2 .................................. yes
+    Using system PCRE2 ................... yes
+Qt Network:
+  getifaddrs() ........................... yes
+  IPv6 ifname ............................ yes
+  libproxy ............................... no
+  Linux AF_NETLINK ....................... yes
+  OpenSSL ................................ yes
+    Qt directly linked to OpenSSL ........ no
+  OpenSSL 1.1 ............................ yes
+  DTLS ................................... yes
+  OCSP-stapling .......................... yes
+  SCTP ................................... no
+  Use system proxies ..................... yes
+  GSSAPI ................................. no
+Qt Gui:
+  Accessibility .......................... yes
+  FreeType ............................... yes
+    Using system FreeType ................ yes
+  HarfBuzz ............................... yes
+    Using system HarfBuzz ................ yes
+  Fontconfig ............................. yes
+  Image formats:
+    GIF .................................. yes
+    ICO .................................. yes
+    JPEG ................................. yes
+      Using system libjpeg ............... yes
+    PNG .................................. yes
+      Using system libpng ................ yes
+  Text formats:
+    HtmlParser ........................... yes
+    CssParser ............................ yes
+    OdfWriter ............................ yes
+    MarkdownReader ....................... yes
+      Using system libmd4c ............... no
+    MarkdownWriter ....................... yes
+  EGL .................................... yes
+  OpenVG ................................. no
+  OpenGL:
+    Desktop OpenGL ....................... yes
+    OpenGL ES 2.0 ........................ no
+    OpenGL ES 3.0 ........................ no
+    OpenGL ES 3.1 ........................ no
+    OpenGL ES 3.2 ........................ no
+  Vulkan ................................. yes
+  Session Management ..................... yes
+Features used by QPA backends:
+  evdev .................................. yes
+  libinput ............................... yes
+  INTEGRITY HID .......................... no
+  mtdev .................................. yes
+  tslib .................................. no
+  xkbcommon .............................. yes
+  X11 specific:
+    XLib ................................. yes
+    XCB Xlib ............................. no
+    EGL on X11 ........................... no
+    xkbcommon-x11 ........................ no
+QPA backends:
+  DirectFB ............................... no
+  EGLFS .................................. yes
+  EGLFS details:
+    EGLFS OpenWFD ........................ no
+    EGLFS i.Mx6 .......................... no
+    EGLFS i.Mx6 Wayland .................. no
+    EGLFS RCAR ........................... no
+    EGLFS EGLDevice ...................... yes
+    EGLFS GBM ............................ no
+    EGLFS VSP2 ........................... no
+    EGLFS Mali ........................... no
+    EGLFS Raspberry Pi ................... no
+    EGLFS X11 ............................ no
+  LinuxFB ................................ yes
+  VNC .................................... yes
+Qt Sql:
+  SQL item models ........................ yes
+Qt Widgets:
+  GTK+ ................................... no
+  Styles ................................. Fusion Windows
+Qt PrintSupport:
+  CUPS ................................... no
+Qt Sql Drivers:
+  DB2 (IBM) .............................. no
+  InterBase .............................. no
+  MySql .................................. no
+  OCI (Oracle) ........................... no
+  ODBC ................................... no
+  PostgreSQL ............................. no
+  SQLite2 ................................ no
+  SQLite ................................. yes
+    Using system provided SQLite ......... no
+  TDS (Sybase) ........................... no
+Qt Testlib:
+  Tester for item models ................. yes
+Serial Port:
+  ntddmodm ............................... no
+Qt SerialBus:
+  Socket CAN ............................. yes
+  Socket CAN FD .......................... yes
+  SerialPort Support ..................... yes
+Further Image Formats:
+  JasPer ................................. no
+  MNG .................................... no
+  TIFF ................................... yes
+    Using system libtiff ................. yes
+  WEBP ................................... yes
+    Using system libwebp ................. yes
+Qt QML:
+  QML network support .................... yes
+  QML debugging and profiling support .... yes
+  QML just-in-time compiler .............. yes
+  QML sequence object .................... yes
+  QML XML http request ................... yes
+  QML Locale ............................. yes
+Qt QML Models:
+  QML list model ......................... yes
+  QML delegate model ..................... yes
+Qt Quick:
+  Direct3D 12 ............................ no
+  AnimatedImage item ..................... yes
+  Canvas item ............................ yes
+  Support for Qt Quick Designer .......... yes
+  Flipable item .......................... yes
+  GridView item .......................... yes
+  ListView item .......................... yes
+  TableView item ......................... yes
+  Path support ........................... yes
+  PathView item .......................... yes
+  Positioner items ....................... yes
+  Repeater item .......................... yes
+  ShaderEffect item ...................... yes
+  Sprite item ............................ yes
+QtQuick3D:
+  Assimp ................................. yes
+  System Assimp .......................... no
+Qt Scxml:
+  ECMAScript data model for QtScxml ...... yes
+Qt Gamepad:
+  SDL2 ................................... no
+Qt 3D:
+  Assimp ................................. yes
+  System Assimp .......................... no
+  Output Qt3D GL traces .................. no
+  Use SSE2 instructions .................. yes
+  Use AVX2 instructions .................. no
+  Aspects:
+    Render aspect ........................ yes
+    Input aspect ......................... yes
+    Logic aspect ......................... yes
+    Animation aspect ..................... yes
+    Extras aspect ........................ yes
+Qt 3D Renderers:
+  OpenGL Renderer ........................ yes
+  RHI Renderer ........................... no
+Qt 3D GeometryLoaders:
+  Autodesk FBX ........................... no
+Qt Wayland Drivers:
+  EGL .................................... yes
+  Raspberry Pi ........................... no
+  XComposite EGL ......................... no
+  XComposite GLX ......................... yes
+  DRM EGL ................................ yes
+  libhybris EGL .......................... no
+  Linux dma-buf server buffer integration . no
+  Vulkan-based server buffer integration . yes
+  Shm emulation server buffer integration . yes
+Qt Wayland Client Shell Integrations:
+  xdg-shell .............................. yes
+  xdg-shell unstable v5 (deprecated) ..... yes
+  xdg-shell unstable v6 .................. yes
+  ivi-shell .............................. yes
+  wl-shell (deprecated) .................. yes
+Qt Wayland Client ........................ yes
+Qt Wayland Compositor .................... yes
+Qt Wayland Compositor Layer Plugins:
+  VSP2 hardware layer integration ........ no
+Qt Bluetooth:
+  BlueZ .................................. no
+  BlueZ Low Energy ....................... no
+  Linux Crypto API ....................... no
+  Native Win32 Bluetooth ................. no
+  WinRT Bluetooth API (desktop & UWP) .... no
+  WinRT advanced bluetooth low energy API (desktop & UWP) . no
+Qt Sensors:
+  sensorfw ............................... no
+Qt Quick Controls 2:
+  Styles ................................. Default Fusion Imagine Material Universal
+Qt Quick Templates 2:
+  Hover support .......................... yes
+  Multi-touch support .................... yes
+Qt Positioning:
+  Gypsy GPS Daemon ....................... no
+  WinRT Geolocation API .................. no
+Qt Location:
+  Qt.labs.location experimental QML plugin . yes
+  Geoservice plugins:
+    OpenStreetMap ........................ yes
+    HERE ................................. yes
+    Esri ................................. yes
+    Mapbox ............................... yes
+    MapboxGL ............................. yes
+    Itemsoverlay ......................... yes
+QtXmlPatterns:
+  XML schema support ..................... yes
+Qt Multimedia:
+  ALSA ................................... no
+  GStreamer 1.0 .......................... no
+  GStreamer 0.10 ......................... no
+  Video for Linux ........................ yes
+  OpenAL ................................. no
+  PulseAudio ............................. no
+  Resource Policy (libresourceqt5) ....... no
+  Windows Audio Services ................. no
+  DirectShow ............................. no
+  Windows Media Foundation ............... no
+Qt TextToSpeech:
+  Flite .................................. no
+  Flite with ALSA ........................ no
+  Speech Dispatcher ...................... no
+Qt Tools:
+  Qt Assistant ........................... yes
+  Qt Designer ............................ yes
+  Qt Distance Field Generator ............ yes
+  kmap2qmap .............................. yes
+  Qt Linguist ............................ yes
+  Mac Deployment Tool .................... no
+  makeqpf ................................ yes
+  pixeltool .............................. yes
+  qdbus .................................. yes
+  qev .................................... yes
+  Qt Attributions Scanner ................ yes
+  qtdiag ................................. yes
+  qtpaths ................................ yes
+  qtplugininfo ........................... yes
+  Windows deployment tool ................ no
+  WinRT Runner Tool ...................... no
+Qt Tools:
+  QDoc ................................... yes
+Qt WebEngine Build Tools:
+  Use System Ninja ....................... yes
+  Use System Gn .......................... no
+  Jumbo Build Merge Limit ................ 8
+  Developer build ........................ yes
+  Sanitizer .............................. no
+  QtWebEngine required system libraries:
+    fontconfig ........................... yes
+    dbus ................................. yes
+    nss .................................. no
+    khr .................................. yes
+    glibc ................................ yes
+  Optional system libraries used:
+    re2 .................................. no
+    icu .................................. no
+    libwebp, libwebpmux and libwebpdemux . yes
+    opus ................................. no
+    ffmpeg ............................... no
+    libvpx ............................... no
+    snappy ............................... no
+    glib ................................. yes
+    zlib ................................. yes
+    minizip .............................. no
+    libevent ............................. no
+    jsoncpp .............................. no
+    protobuf ............................. no
+    libxml2 and libxslt .................. no
+    lcms2 ................................ no
+    png .................................. yes
+    JPEG ................................. yes
+    harfbuzz ............................. yes
+    freetype ............................. yes
+
+Note: Also available for Linux: linux-clang linux-icc
+
+Note: The following modules are not being compiled in this configuration:
+    webenginecore
+    webengine
+    webenginewidgets
+    pdf
+    pdfwidgets
+
+WARNING: Python version 2 (2.7.5 or later) is required to build QtWebengine.
+
+WARNING: Python version 2 (2.7.5 or later) is required to build QtPdf.
+
+WARNING: QtWebEngine will not be built.
+
+WARNING: QtPdf will not be built.
+
+Qt is now configured for building. Just run 'gmake'.
+Once everything is built, Qt is installed.
+You should NOT run 'gmake install'.
+Note that this build cannot be deployed to other machines or devices.
+
+Prior to reconfiguration, make sure you remove any leftovers from
+the previous build.
