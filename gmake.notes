@@ -2931,5 +2931,3 @@ gmake[2]: Leaving directory '/home/wasinger/GIT/qt5-build/qtbase/src'
 gmake[1]: *** [Makefile:51: sub-src-make_first] Error 2
 gmake[1]: Leaving directory '/home/wasinger/GIT/qt5-build/qtbase'
 gmake: *** [Makefile:89: module-qtbase-make_first] Error 2
-______
-
