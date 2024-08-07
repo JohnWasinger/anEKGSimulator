@@ -1,4 +1,6 @@
-> ../qt5/configure -developer-build -opensource
+/home/wasinger/GIT/qt5/qtbase/config_help.txt
+
+yes | ~/GIT/qt5/configure -developer-build -opensource > ~/qt5-configure.notes 2&>1
 + cd qtbase
 + /home/wasinger/GIT/qt5/qtbase/configure -top-level -developer-build -opensource
 Preparing build tree...
